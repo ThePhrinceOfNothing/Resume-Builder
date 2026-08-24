@@ -23,82 +23,89 @@ export function ExperienceForm() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {experience.map((exp, index) => (
-        <div key={exp.id} className="relative p-4 border rounded-lg bg-card space-y-4">
-          <div className="absolute top-2 right-2 flex items-center gap-1">
+        <div key={exp.id} className="relative p-6 bg-neo shadow-neo-convex rounded-2xl space-y-5 border-none">
+          <div className="absolute top-4 right-4 flex items-center gap-2">
             <Button 
-              variant="ghost" 
+              variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-slate-700"
+              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
               onClick={() => moveExperience(index, 'up')}
               disabled={index === 0}
             >
               <ChevronUp className="h-4 w-4" />
             </Button>
             <Button 
-              variant="ghost" 
+              variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-slate-700"
+              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
               onClick={() => moveExperience(index, 'down')}
               disabled={index === experience.length - 1}
             >
               <ChevronDown className="h-4 w-4" />
             </Button>
             <Button 
-              variant="ghost" 
+              variant="default" 
               size="icon" 
-              className="h-8 w-8 text-red-500 hover:text-red-600"
+              className="h-8 w-8 text-red-400 hover:text-red-500 rounded-full"
               onClick={() => removeExperience(exp.id)}
             >
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
           
-          <h4 className="font-bold text-slate-700">Experience {index + 1}</h4>
+          <h4 className="font-bold text-slate-600 text-lg">Experience {index + 1}</h4>
           
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label>Company</Label>
+              <Label className="text-slate-500 ml-1">Company</Label>
               <Input 
-                value={exp.company} 
-                onChange={(e) => updateExperience(exp.id, { company: e.target.value })} 
+                value={exp.company}
+                onChange={(e) => updateExperience(exp.id, { company: e.target.value })}
+                className="rounded-xl border-none"
               />
             </div>
             <div className="space-y-2">
-              <Label>Role / Title</Label>
+              <Label className="text-slate-500 ml-1">Role</Label>
               <Input 
-                value={exp.role} 
-                onChange={(e) => updateExperience(exp.id, { role: e.target.value })} 
+                value={exp.role}
+                onChange={(e) => updateExperience(exp.id, { role: e.target.value })}
+                className="rounded-xl border-none"
               />
             </div>
             <div className="space-y-2">
-              <Label>Start Date</Label>
+              <Label className="text-slate-500 ml-1">Start Date</Label>
               <Input 
-                value={exp.startDate} 
-                onChange={(e) => updateExperience(exp.id, { startDate: e.target.value })} 
+                value={exp.startDate}
+                onChange={(e) => updateExperience(exp.id, { startDate: e.target.value })}
+                placeholder="MM/YYYY"
+                className="rounded-xl border-none"
               />
             </div>
             <div className="space-y-2">
-              <Label>End Date</Label>
+              <Label className="text-slate-500 ml-1">End Date</Label>
               <Input 
-                value={exp.endDate} 
-                onChange={(e) => updateExperience(exp.id, { endDate: e.target.value })} 
+                value={exp.endDate}
+                onChange={(e) => updateExperience(exp.id, { endDate: e.target.value })}
+                placeholder="MM/YYYY or Present"
+                className="rounded-xl border-none"
               />
             </div>
           </div>
           <div className="space-y-2">
-            <Label>Description</Label>
+            <Label className="text-slate-500 ml-1">Description (Markdown supported)</Label>
             <Textarea 
-              value={exp.description} 
-              onChange={(e) => updateExperience(exp.id, { description: e.target.value })} 
-              className="h-24"
+              value={exp.description}
+              onChange={(e) => updateExperience(exp.id, { description: e.target.value })}
+              rows={4}
+              className="rounded-xl border-none"
             />
           </div>
         </div>
       ))}
-      <Button type="button" variant="outline" className="w-full" onClick={handleAdd}>
-        <Plus className="mr-2 h-4 w-4" /> Add Experience
+      <Button onClick={handleAdd} className="w-full gap-2 rounded-xl h-12 text-blue-600 font-semibold" variant="default">
+        <Plus className="h-5 w-5" /> Add Experience
       </Button>
     </div>
   )

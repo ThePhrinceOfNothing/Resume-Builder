@@ -26,31 +26,32 @@ export function SkillsForm() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6 p-6 bg-neo shadow-neo-convex rounded-2xl border-none">
       <div className="space-y-2">
-        <Label htmlFor="skills">Add Skill (Press Enter)</Label>
+        <Label htmlFor="skills" className="text-slate-500 ml-1">Add Skill (Press Enter)</Label>
         <Input 
           id="skills"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="e.g. React, TypeScript, Project Management..."
+          className="rounded-xl border-none"
         />
       </div>
       
-      <div className="flex flex-wrap gap-2 mt-4">
+      <div className="flex flex-wrap gap-3 mt-6">
         {skills.map((skill) => (
           <div 
             key={skill} 
-            className="flex items-center gap-1 bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm"
+            className="flex items-center gap-2 bg-neo shadow-neo-convex px-4 py-2 rounded-full text-sm font-semibold text-slate-600"
           >
             <span>{skill}</span>
             <button 
               type="button" 
               onClick={() => removeSkill(skill)}
-              className="text-muted-foreground hover:text-foreground focus:outline-none"
+              className="text-slate-400 hover:text-red-500 transition-colors focus:outline-none"
             >
-              <X className="h-3 w-3" />
+              <X className="h-4 w-4" />
             </button>
           </div>
         ))}

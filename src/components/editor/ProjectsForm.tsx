@@ -21,70 +21,72 @@ export function ProjectsForm() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {projects.map((proj, index) => (
-        <div key={proj.id} className="relative p-4 border rounded-lg bg-card space-y-4">
-          <div className="absolute top-2 right-2 flex items-center gap-1">
+        <div key={proj.id} className="relative p-6 bg-neo shadow-neo-convex rounded-2xl space-y-5 border-none">
+          <div className="absolute top-4 right-4 flex items-center gap-2">
             <Button 
-              variant="ghost" 
+              variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-slate-700"
+              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
               onClick={() => moveProject(index, 'up')}
               disabled={index === 0}
             >
               <ChevronUp className="h-4 w-4" />
             </Button>
             <Button 
-              variant="ghost" 
+              variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-slate-700"
+              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
               onClick={() => moveProject(index, 'down')}
               disabled={index === projects.length - 1}
             >
               <ChevronDown className="h-4 w-4" />
             </Button>
             <Button 
-              variant="ghost" 
+              variant="default" 
               size="icon" 
-              className="h-8 w-8 text-red-500 hover:text-red-600"
+              className="h-8 w-8 text-red-400 hover:text-red-500 rounded-full"
               onClick={() => removeProject(proj.id)}
             >
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
           
-          <h4 className="font-bold text-slate-700">Project {index + 1}</h4>
+          <h4 className="font-bold text-slate-600 text-lg">Project {index + 1}</h4>
           
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label>Project Title</Label>
-                <Input 
-                  value={proj.title} 
-                  onChange={(e) => updateProject(proj.id, { title: e.target.value })} 
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Link / URL</Label>
-                <Input 
-                  value={proj.link} 
-                  onChange={(e) => updateProject(proj.id, { link: e.target.value })} 
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label className="text-slate-500 ml-1">Project Title</Label>
+              <Input 
+                value={proj.title}
+                onChange={(e) => updateProject(proj.id, { title: e.target.value })}
+                className="rounded-xl border-none"
+              />
             </div>
             <div className="space-y-2">
-              <Label>Description</Label>
-              <Textarea 
-                value={proj.description} 
-                onChange={(e) => updateProject(proj.id, { description: e.target.value })} 
-                className="h-24"
+              <Label className="text-slate-500 ml-1">Link / URL (Optional)</Label>
+              <Input 
+                value={proj.link}
+                onChange={(e) => updateProject(proj.id, { link: e.target.value })}
+                placeholder="https://..."
+                className="rounded-xl border-none"
               />
             </div>
           </div>
+          <div className="space-y-2">
+            <Label className="text-slate-500 ml-1">Description</Label>
+            <Textarea 
+              value={proj.description}
+              onChange={(e) => updateProject(proj.id, { description: e.target.value })}
+              rows={4}
+              className="rounded-xl border-none"
+            />
+          </div>
         </div>
       ))}
-      <Button type="button" variant="outline" className="w-full" onClick={handleAdd}>
-        <Plus className="mr-2 h-4 w-4" /> Add Project
+      <Button onClick={handleAdd} className="w-full gap-2 rounded-xl h-12 text-blue-600 font-semibold" variant="default">
+        <Plus className="h-5 w-5" /> Add Project
       </Button>
     </div>
   )
