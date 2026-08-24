@@ -54,7 +54,6 @@ export function TourGuide() {
         steps={steps}
         run={run}
         continuous
-        showProgress
         showSkipButton
         hideCloseButton
         disableOverlayClose
