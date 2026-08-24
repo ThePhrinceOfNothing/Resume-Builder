@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { PersonalInfoForm } from './PersonalInfoForm'
 import { ExperienceForm } from './ExperienceForm'
@@ -8,6 +10,16 @@ import { SkillsForm } from './SkillsForm'
 import { ProjectsForm } from './ProjectsForm'
 
 export function Editor() {
+  const [activeTab, setActiveTab] = useState('personal')
+
+  const tabs = [
+    { id: 'personal', label: 'Personal Info' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' }
+  ]
+
   return (
     <div className="h-full w-full flex flex-col bg-transparent">
       <div className="p-6 pb-2 shrink-0">
@@ -15,39 +27,25 @@ export function Editor() {
         <p className="text-sm text-slate-500 font-medium">Your changes are saved automatically.</p>
       </div>
 
-      <Tabs defaultValue="personal" className="flex-1 flex flex-col overflow-hidden">
-        <div className="px-6 shrink-0 border-b border-transparent shadow-[0_10px_10px_-10px_rgba(163,177,198,0.3)]">
-          <TabsList className="bg-transparent h-auto p-0 flex gap-6 overflow-x-auto no-scrollbar justify-start border-none">
-            <TabsTrigger 
-              value="personal" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
-            >
-              Personal Info
-            </TabsTrigger>
-            <TabsTrigger 
-              value="experience" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
-            >
-              Experience
-            </TabsTrigger>
-            <TabsTrigger 
-              value="education" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
-            >
-              Education
-            </TabsTrigger>
-            <TabsTrigger 
-              value="skills" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
-            >
-              Skills
-            </TabsTrigger>
-            <TabsTrigger 
-              value="projects" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
-            >
-              Projects
-            </TabsTrigger>
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col overflow-hidden">
+        <div className="px-6 shrink-0 py-2">
+          <TabsList className="bg-transparent h-auto p-1.5 flex gap-2 overflow-x-auto no-scrollbar justify-start border-none bg-neo shadow-neo-concave-sm rounded-full">
+            {tabs.map((tab) => (
+              <TabsTrigger 
+                key={tab.id}
+                value={tab.id} 
+                className="relative px-4 py-2 rounded-full border-none data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold z-10 transition-colors"
+              >
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-neo shadow-neo-convex-sm rounded-full -z-10"
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-20">{tab.label}</span>
+              </TabsTrigger>
+            ))}
           </TabsList>
         </div>
         
