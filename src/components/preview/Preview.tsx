@@ -31,7 +31,7 @@ export function Preview() {
     <div className="h-full w-full flex flex-col">
       
       {/* Top Toolbar */}
-      <div className="h-16 flex items-center justify-between px-6 shrink-0 z-10 print:hidden mb-2 overflow-x-auto no-scrollbar gap-4">
+      <div className="h-16 flex items-center justify-between px-6 shrink-0 z-10 print:hidden mb-2 overflow-x-auto pb-1 gap-4">
         <div className="flex items-center gap-6 shrink-0 tour-step-customize">
           {/* Theme Selector */}
           <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ export function Preview() {
               <div className="flex gap-4 justify-end">
                 <Button variant="outline" onClick={() => setShowPdfInstruction(false)}>Cancel</Button>
                 <Button onClick={() => { setShowPdfInstruction(false); setTimeout(() => doPrint(), 300); }} className="bg-blue-600 text-white hover:bg-blue-700 border-none shadow-[0_0_15px_rgba(37,99,235,0.5)]">
-                  Got it, Continue
+                  Continue
                 </Button>
               </div>
             </motion.div>

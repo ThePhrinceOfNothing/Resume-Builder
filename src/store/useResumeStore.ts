@@ -44,43 +44,18 @@ export type ResumeData = {
 
 const initialData: ResumeData = {
   personalInfo: {
-    fullName: 'John Doe',
-    jobTitle: 'Software Engineer',
-    email: 'john.doe@example.com',
-    phone: '(555) 123-4567',
-    location: 'San Francisco, CA',
-    website: 'johndoe.dev',
-    summary: 'Passionate software engineer with 5+ years of experience building scalable web applications.'
+    fullName: '',
+    jobTitle: '',
+    email: '',
+    phone: '',
+    location: '',
+    website: '',
+    summary: ''
   },
-  experience: [
-    {
-      id: '1',
-      company: 'Tech Corp',
-      role: 'Senior Developer',
-      startDate: 'Jan 2020',
-      endDate: 'Present',
-      description: 'Led the frontend team in migrating to Next.js, improving load times by 40%.'
-    }
-  ],
-  education: [
-    {
-      id: '1',
-      school: 'University of Technology',
-      degree: 'B.S. Computer Science',
-      startDate: 'Sep 2015',
-      endDate: 'May 2019',
-      description: 'Graduated with honors. President of the Computer Science Club.'
-    }
-  ],
-  skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js'],
-  projects: [
-    {
-      id: '1',
-      title: 'Portfolio Builder',
-      description: 'An interactive resume and portfolio builder.',
-      link: 'github.com/johndoe/portfolio'
-    }
-  ]
+  experience: [],
+  education: [],
+  skills: [],
+  projects: []
 }
 
 export type Theme = 'minimal' | 'professional' | 'creative'
@@ -223,7 +198,7 @@ export const useResumeStore = create<ResumeStore>()(
       resetData: () => set({ data: initialData }),
     }),
     {
-      name: 'resume-storage', // unique name
+      name: 'resume-storage-v2', // unique name
     }
   )
 )

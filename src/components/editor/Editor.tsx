@@ -76,7 +76,7 @@ export function Editor() {
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col overflow-hidden">
         <div className="px-4 md:px-6 shrink-0 py-2 w-full max-w-full">
-          <TabsList className="bg-transparent h-auto p-1.5 flex gap-2 overflow-x-auto overscroll-x-contain no-scrollbar justify-start border-none bg-neo shadow-neo-concave-sm rounded-full w-full">
+          <TabsList className="bg-transparent h-auto p-1.5 flex gap-2 overflow-x-auto overscroll-x-contain pb-1 justify-start border-none bg-neo shadow-neo-concave-sm rounded-full w-full">
             {tabs.map((tab) => (
               <TabsTrigger 
                 key={tab.id}
