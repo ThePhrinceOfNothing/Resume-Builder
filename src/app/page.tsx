@@ -18,7 +18,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-neo text-slate-700 dark:text-slate-200 font-sans selection:bg-blue-200">
+    <div className="min-h-screen w-full bg-neo text-slate-700 dark:text-slate-200 font-sans selection:bg-blue-200 overflow-x-hidden">
       
       {/* Paper Size Modal */}
       {isModalOpen && (
