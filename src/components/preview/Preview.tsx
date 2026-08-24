@@ -144,7 +144,7 @@ export function Preview() {
               </p>
               <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-6 text-sm">
                 <p className="text-blue-700 dark:text-blue-300 font-medium">
-                  👉 When the print window opens, simply change the <strong>Destination / Printer</strong> to <span className="font-bold">"Save as PDF"</span>.
+                  When the print window opens, simply change the <strong>Destination / Printer</strong> to <span className="font-bold">"Save as PDF"</span>.
                 </p>
               </div>
               <div className="flex gap-4 justify-end">
