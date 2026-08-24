@@ -9,15 +9,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-neo text-slate-700 shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active",
+          "bg-neo text-slate-700 dark:text-slate-200 shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active",
         destructive:
           "bg-neo text-red-500 shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active",
         outline:
-          "border border-slate-300 bg-neo shadow-sm hover:shadow-neo-convex active:shadow-neo-active text-slate-700",
+          "border border-slate-300 bg-neo shadow-sm hover:shadow-neo-convex active:shadow-neo-active text-slate-700 dark:text-slate-200",
         secondary:
           "bg-neo text-blue-600 shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active",
-        ghost: "hover:shadow-neo-convex-sm text-slate-700 active:shadow-neo-active",
-        link: "text-slate-700 underline-offset-4 hover:underline",
+        ghost: "hover:shadow-neo-convex-sm text-slate-700 dark:text-slate-200 active:shadow-neo-active",
+        link: "text-slate-700 dark:text-slate-200 underline-offset-4 hover:underline",
       },
       size: {
         default:

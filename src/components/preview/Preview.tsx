@@ -35,7 +35,7 @@ export function Preview() {
           <div className="flex items-center gap-2">
             <LayoutTemplate className="h-4 w-4 text-blue-500" />
             <Select value={theme} onValueChange={(v) => v && setTheme(v as Theme)}>
-              <SelectTrigger className="w-[140px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
+              <SelectTrigger className="w-[140px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 dark:text-slate-200 font-medium">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -48,9 +48,9 @@ export function Preview() {
 
           {/* Font Selector */}
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-slate-500">Font:</span>
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Font:</span>
             <Select value={fontFamily} onValueChange={(v) => v && setFontFamily(v)}>
-              <SelectTrigger className="w-[120px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
+              <SelectTrigger className="w-[120px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 dark:text-slate-200 font-medium">
                 <SelectValue placeholder="Font" />
               </SelectTrigger>
               <SelectContent>
@@ -63,9 +63,9 @@ export function Preview() {
 
           {/* Paper Size Selector */}
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-slate-500">Size:</span>
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Size:</span>
             <Select value={paperSize} onValueChange={(v) => v && setPaperSize(v as any)}>
-              <SelectTrigger className="w-[110px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
+              <SelectTrigger className="w-[110px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 dark:text-slate-200 font-medium">
                 <SelectValue placeholder="Size" />
               </SelectTrigger>
               <SelectContent>
@@ -77,7 +77,7 @@ export function Preview() {
 
           {/* Color Picker */}
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-slate-500">Color:</span>
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Color:</span>
             <div className="h-9 w-9 rounded-full bg-neo shadow-neo-convex-sm overflow-hidden flex items-center justify-center p-1">
               <input 
                 type="color" 

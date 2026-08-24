@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useTheme } from 'next-themes'
 import { Moon, Sun } from 'lucide-react'
@@ -33,8 +33,9 @@ export function ThemeToggle() {
       Math.max(y, innerHeight - y)
     )
 
-    const transition = document.startViewTransition(() => {
+    const transition = document.startViewTransition(async () => {
       setTheme(newTheme)
+      await new Promise(resolve => setTimeout(resolve, 10))
     })
 
     transition.ready.then(() => {
@@ -62,7 +63,7 @@ export function ThemeToggle() {
     <button
       id="theme-toggle"
       onClick={toggleTheme}
-      className="p-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 hover:text-blue-500 transition-all flex items-center justify-center z-50"
+      className="p-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-all flex items-center justify-center z-50"
       aria-label="Toggle Dark Mode"
       title="Toggle Theme"
     >

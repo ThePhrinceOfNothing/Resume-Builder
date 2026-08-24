@@ -49,7 +49,7 @@ export function SkillsForm() {
             <button 
               type="button" 
               onClick={() => removeSkill(skill)}
-              className="text-slate-400 hover:text-red-500 transition-colors focus:outline-none"
+              className="text-slate-400 dark:text-slate-500 hover:text-red-500 transition-colors focus:outline-none"
             >
               <X className="h-4 w-4" />
             </button>

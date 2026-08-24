@@ -18,7 +18,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-neo text-slate-700 font-sans selection:bg-blue-200">
+    <div className="min-h-screen w-full bg-neo text-slate-700 dark:text-slate-200 font-sans selection:bg-blue-200">
       
       {/* Paper Size Modal */}
       {isModalOpen && (
@@ -26,13 +26,13 @@ export default function LandingPage() {
           <div className="bg-neo shadow-neo-convex rounded-3xl p-8 max-w-lg w-full flex flex-col relative border border-white/40">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 text-slate-400 hover:text-slate-600"
+              className="absolute top-6 right-6 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300"
             >
               ✕
             </button>
             
-            <h2 className="text-2xl font-bold text-slate-700 mb-2">Choose Paper Size</h2>
-            <p className="text-slate-500 mb-8">Select the default format for your resume. You can change this later.</p>
+            <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-2">Choose Paper Size</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-8">Select the default format for your resume. You can change this later.</p>
             
             <div className="grid grid-cols-2 gap-6">
               <button 
@@ -40,11 +40,11 @@ export default function LandingPage() {
                 className="flex flex-col items-center gap-4 p-6 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-2xl transition-all border border-white/20 group"
               >
                 <div className="w-16 h-20 bg-neo shadow-neo-concave rounded-md border border-white/50 flex items-center justify-center group-hover:text-blue-500 transition-colors">
-                  <File className="h-8 w-8 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                  <File className="h-8 w-8 text-slate-400 dark:text-slate-500 group-hover:text-blue-500 transition-colors" />
                 </div>
                 <div className="text-center">
-                  <h3 className="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">A4</h3>
-                  <p className="text-xs text-slate-500 mt-1">210 × 297 mm</p>
+                  <h3 className="font-bold text-slate-700 dark:text-slate-200 group-hover:text-blue-600 transition-colors">A4</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">210 × 297 mm</p>
                 </div>
               </button>
 
@@ -53,11 +53,11 @@ export default function LandingPage() {
                 className="flex flex-col items-center gap-4 p-6 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-2xl transition-all border border-white/20 group"
               >
                 <div className="w-[72px] h-[92px] bg-neo shadow-neo-concave rounded-md border border-white/50 flex items-center justify-center group-hover:text-blue-500 transition-colors">
-                  <FileCode className="h-8 w-8 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                  <FileCode className="h-8 w-8 text-slate-400 dark:text-slate-500 group-hover:text-blue-500 transition-colors" />
                 </div>
                 <div className="text-center">
-                  <h3 className="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">US Letter</h3>
-                  <p className="text-xs text-slate-500 mt-1">8.5 × 11 in</p>
+                  <h3 className="font-bold text-slate-700 dark:text-slate-200 group-hover:text-blue-600 transition-colors">US Letter</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">8.5 × 11 in</p>
                 </div>
               </button>
             </div>
@@ -73,7 +73,7 @@ export default function LandingPage() {
           </div>
           <span className="text-xl font-bold tracking-wide">RésuméFlow</span>
         </div>
-        <div className="hidden md:flex items-center gap-8 font-semibold text-slate-500">
+        <div className="hidden md:flex items-center gap-8 font-semibold text-slate-500 dark:text-slate-400">
           <Link href="#features" className="hover:text-blue-500 transition-colors">Features</Link>
           <Link href="#how-it-works" className="hover:text-blue-500 transition-colors">How it Works</Link>
           <Link href="#faq" className="hover:text-blue-500 transition-colors">FAQ</Link>
@@ -85,7 +85,7 @@ export default function LandingPage() {
             href="https://github.com/ThePhrinceOfNothing/Resume-Builder"  
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 hover:text-slate-700 transition-all"
+            className="p-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:text-slate-200 transition-all"
             title="View Source on GitHub"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
@@ -107,11 +107,11 @@ export default function LandingPage() {
           <div className="px-4 py-1.5 mb-6 rounded-full shadow-neo-convex-sm bg-neo text-sm font-bold text-blue-500 tracking-wide uppercase">
             100% Free & Open Source
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-slate-700">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-slate-700 dark:text-slate-200">
             Build your <br className="hidden lg:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">dream resume</span>.
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 font-medium mb-10 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium mb-10 max-w-xl leading-relaxed">
             Stand out from the crowd with a beautifully crafted, ATS-friendly resume. Designed with stunning Neumorphism. No sign-up required.
           </p>
           <div className="flex items-center gap-4">
@@ -155,7 +155,7 @@ export default function LandingPage() {
             {/* Floating Pill */}
             <div className="absolute bottom-[10%] left-[10%] px-6 py-3 bg-neo shadow-neo-convex rounded-full z-30 transform -rotate-6 flex items-center gap-3 border border-white/30">
               <div className="w-3 h-3 bg-green-400 rounded-full shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
-              <span className="font-bold text-slate-600 text-sm">ATS Optimized</span>
+              <span className="font-bold text-slate-600 dark:text-slate-300 text-sm">ATS Optimized</span>
             </div>
           </div>
         </div>
@@ -165,8 +165,8 @@ export default function LandingPage() {
       <section id="features" className="w-full bg-neo py-24 border-t border-white/40">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700">Everything you need</h2>
-            <p className="text-slate-500 font-medium max-w-2xl mx-auto">Create a professional portfolio in minutes with powerful tools disguised in a simple, beautiful interface.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700 dark:text-slate-200">Everything you need</h2>
+            <p className="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Create a professional portfolio in minutes with powerful tools disguised in a simple, beautiful interface.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -208,30 +208,30 @@ export default function LandingPage() {
       <section id="how-it-works" className="w-full bg-neo py-24 border-t border-white/40">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700">How it Works</h2>
-            <p className="text-slate-500 font-medium max-w-2xl mx-auto">Three simple steps to your new professional resume.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700 dark:text-slate-200">How it Works</h2>
+            <p className="text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">Three simple steps to your new professional resume.</p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center relative">
             {/* Step 1 */}
             <div className="flex-1 bg-neo shadow-neo-convex rounded-3xl p-8 text-center flex flex-col items-center gap-4 border border-white/20 z-10 w-full">
               <div className="w-12 h-12 rounded-full shadow-neo-concave bg-neo flex items-center justify-center font-bold text-xl text-blue-500">1</div>
-              <h3 className="text-xl font-bold text-slate-700">Choose Format</h3>
-              <p className="text-slate-500">Select A4 or US Letter size and jump right into the editor.</p>
+              <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200">Choose Format</h3>
+              <p className="text-slate-500 dark:text-slate-400">Select A4 or US Letter size and jump right into the editor.</p>
             </div>
             
             {/* Step 2 */}
             <div className="flex-1 bg-neo shadow-neo-convex rounded-3xl p-8 text-center flex flex-col items-center gap-4 border border-white/20 z-10 w-full">
               <div className="w-12 h-12 rounded-full shadow-neo-concave bg-neo flex items-center justify-center font-bold text-xl text-blue-500">2</div>
-              <h3 className="text-xl font-bold text-slate-700">Fill Details</h3>
-              <p className="text-slate-500">Add your experience, education, and skills in a beautiful UI.</p>
+              <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200">Fill Details</h3>
+              <p className="text-slate-500 dark:text-slate-400">Add your experience, education, and skills in a beautiful UI.</p>
             </div>
 
             {/* Step 3 */}
             <div className="flex-1 bg-neo shadow-neo-convex rounded-3xl p-8 text-center flex flex-col items-center gap-4 border border-white/20 z-10 w-full">
               <div className="w-12 h-12 rounded-full shadow-neo-concave bg-neo flex items-center justify-center font-bold text-xl text-blue-500">3</div>
-              <h3 className="text-xl font-bold text-slate-700">Export PDF</h3>
-              <p className="text-slate-500">Customize colors and fonts, then download a pixel-perfect PDF.</p>
+              <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200">Export PDF</h3>
+              <p className="text-slate-500 dark:text-slate-400">Customize colors and fonts, then download a pixel-perfect PDF.</p>
             </div>
           </div>
         </div>
@@ -241,21 +241,21 @@ export default function LandingPage() {
       <section id="faq" className="w-full bg-neo py-24 border-t border-white/40">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700 dark:text-slate-200">Frequently Asked Questions</h2>
           </div>
           
           <div className="space-y-6">
             <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
-              <h3 className="text-xl font-bold text-slate-700 mb-2">Is it completely free?</h3>
-              <p className="text-slate-500">Yes! RésuméFlow is 100% free and open-source. There are no hidden fees, subscriptions, or watermarks on your exported PDFs.</p>
+              <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2">Is it completely free?</h3>
+              <p className="text-slate-500 dark:text-slate-400">Yes! RésuméFlow is 100% free and open-source. There are no hidden fees, subscriptions, or watermarks on your exported PDFs.</p>
             </div>
             <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
-              <h3 className="text-xl font-bold text-slate-700 mb-2">Where is my data saved?</h3>
-              <p className="text-slate-500">Your data is saved entirely on your local device (in your browser's local storage). We do not collect or store your personal information on our servers.</p>
+              <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2">Where is my data saved?</h3>
+              <p className="text-slate-500 dark:text-slate-400">Your data is saved entirely on your local device (in your browser's local storage). We do not collect or store your personal information on our servers.</p>
             </div>
             <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
-              <h3 className="text-xl font-bold text-slate-700 mb-2">Will the PDF pass ATS (Applicant Tracking Systems)?</h3>
-              <p className="text-slate-500">Yes! Our templates are designed to be easily readable by ATS software. When you export to PDF, the text remains selectable and structured.</p>
+              <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2">Will the PDF pass ATS (Applicant Tracking Systems)?</h3>
+              <p className="text-slate-500 dark:text-slate-400">Yes! Our templates are designed to be easily readable by ATS software. When you export to PDF, the text remains selectable and structured.</p>
             </div>
           </div>
         </div>
@@ -267,12 +267,12 @@ export default function LandingPage() {
           href="https://github.com/ThePhrinceOfNothing/Resume-Builder" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-slate-500 hover:text-blue-500 transition-colors font-semibold"
+          className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors font-semibold"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
           <span>Star us on GitHub</span>
         </a>
-        <p className="text-slate-500 font-medium">© {new Date().getFullYear()} RésuméFlow. Built with Neumorphism.</p>
+        <p className="text-slate-500 dark:text-slate-400 font-medium">© {new Date().getFullYear()} RésuméFlow. Built with Neumorphism.</p>
       </footer>
     </div>
   )
@@ -284,8 +284,8 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
       <div className="p-4 rounded-full shadow-neo-concave bg-neo mb-2">
         {icon}
       </div>
-      <h3 className="text-xl font-bold text-slate-700">{title}</h3>
-      <p className="text-slate-500 leading-relaxed">{description}</p>
+      <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200">{title}</h3>
+      <p className="text-slate-500 dark:text-slate-400 leading-relaxed">{description}</p>
     </div>
   )
 }
