@@ -20,31 +20,31 @@ export function Editor() {
           <TabsList className="bg-transparent h-auto p-0 flex gap-6 overflow-x-auto no-scrollbar justify-start border-none">
             <TabsTrigger 
               value="personal" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:!bg-transparent data-[state=active]:text-blue-600 data-[state=active]:!shadow-none text-slate-500 font-semibold"
+              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
             >
               Personal Info
             </TabsTrigger>
             <TabsTrigger 
               value="experience" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:!bg-transparent data-[state=active]:text-blue-600 data-[state=active]:!shadow-none text-slate-500 font-semibold"
+              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
             >
               Experience
             </TabsTrigger>
             <TabsTrigger 
               value="education" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:!bg-transparent data-[state=active]:text-blue-600 data-[state=active]:!shadow-none text-slate-500 font-semibold"
+              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
             >
               Education
             </TabsTrigger>
             <TabsTrigger 
               value="skills" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:!bg-transparent data-[state=active]:text-blue-600 data-[state=active]:!shadow-none text-slate-500 font-semibold"
+              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
             >
               Skills
             </TabsTrigger>
             <TabsTrigger 
               value="projects" 
-              className="px-0 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-500 data-[state=active]:!bg-transparent data-[state=active]:text-blue-600 data-[state=active]:!shadow-none text-slate-500 font-semibold"
+              className="px-0 py-3 rounded-none border-b-2 border-transparent data-active:border-blue-500 data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold"
             >
               Projects
             </TabsTrigger>
