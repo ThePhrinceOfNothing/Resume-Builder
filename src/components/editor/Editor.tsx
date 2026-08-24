@@ -52,10 +52,10 @@ export function Editor() {
 
   return (
     <div className="h-full w-full flex flex-col bg-transparent">
-      <div className="p-6 pb-2 shrink-0 flex justify-between items-start">
+      <div className="p-4 md:p-6 pb-2 shrink-0 flex justify-between items-start">
         <div>
-          <h1 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-1">Edit Résumé</h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Your changes are saved automatically.</p>
+          <h1 className="text-xl md:text-2xl font-bold text-slate-700 dark:text-slate-200 mb-1">Edit Résumé</h1>
+          <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium hidden sm:block">Your changes are saved automatically.</p>
         </div>
 
         <div className="flex items-center gap-3">
@@ -75,13 +75,13 @@ export function Editor() {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col overflow-hidden">
-        <div className="px-6 shrink-0 py-2">
-          <TabsList className="bg-transparent h-auto p-1.5 flex gap-2 overflow-x-auto no-scrollbar justify-start border-none bg-neo shadow-neo-concave-sm rounded-full">
+        <div className="px-4 md:px-6 shrink-0 py-2 w-full max-w-full">
+          <TabsList className="bg-transparent h-auto p-1.5 flex gap-2 overflow-x-auto overscroll-x-contain no-scrollbar justify-start border-none bg-neo shadow-neo-concave-sm rounded-full w-full">
             {tabs.map((tab) => (
               <TabsTrigger 
                 key={tab.id}
                 value={tab.id} 
-                className="relative px-4 py-2 rounded-full border-none data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 dark:text-slate-400 font-semibold z-10 transition-colors"
+                className="relative px-4 py-2 rounded-full border-none data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 dark:text-slate-400 font-semibold z-10 transition-colors shrink-0 whitespace-nowrap"
               >
                 {activeTab === tab.id && (
                   <motion.div
@@ -96,7 +96,7 @@ export function Editor() {
           </TabsList>
         </div>
         
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-4 md:p-6">
           <TabsContent value="personal" className="mt-0">
             <PersonalInfoForm />
           </TabsContent>

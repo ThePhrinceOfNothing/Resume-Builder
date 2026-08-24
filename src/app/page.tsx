@@ -66,7 +66,7 @@ export default function LandingPage() {
       )}
 
       {/* Navbar */}
-      <nav className="w-full px-8 py-6 flex items-center justify-between">
+      <nav className="w-full px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-full shadow-neo-convex bg-neo">
             <FileText className="h-6 w-6 text-blue-500" />
@@ -79,7 +79,7 @@ export default function LandingPage() {
           <Link href="#faq" className="hover:text-blue-500 transition-colors">FAQ</Link>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <ThemeToggle />
           <a 
             href="https://github.com/ThePhrinceOfNothing/Resume-Builder"  
@@ -100,14 +100,14 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-8 pt-16 pb-24 md:pt-24 flex flex-col lg:flex-row items-center gap-16">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-16 pb-16 sm:pb-24 flex flex-col lg:flex-row items-center gap-8 sm:gap-16">
         
         {/* Left: Text Content */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
           <div className="px-4 py-1.5 mb-6 rounded-full shadow-neo-convex-sm bg-neo text-sm font-bold text-blue-500 tracking-wide uppercase">
             100% Free & Open Source
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-slate-700 dark:text-slate-200">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 md:mb-6 leading-tight text-slate-700 dark:text-slate-200">
             Build your <br className="hidden lg:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">dream resume</span>.
           </h1>
