@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { useResumeStore, Theme } from '@/store/useResumeStore'
 import { MinimalTheme } from './MinimalTheme'
 import { ProfessionalTheme } from './ProfessionalTheme'
+import { CreativeTheme } from './CreativeTheme'
 import { Button } from '@/components/ui/button'
 import { Download, LayoutTemplate } from 'lucide-react'
 import { useReactToPrint } from 'react-to-print'
@@ -29,7 +30,7 @@ export function Preview() {
       
       {/* Top Toolbar */}
       <div className="h-16 flex items-center justify-between px-6 shrink-0 z-10 print:hidden mb-2 overflow-x-auto no-scrollbar gap-4">
-        <div className="flex items-center gap-6 shrink-0">
+        <div className="flex items-center gap-6 shrink-0 tour-step-customize">
           {/* Theme Selector */}
           <div className="flex items-center gap-2">
             <LayoutTemplate className="h-4 w-4 text-blue-500" />
@@ -40,6 +41,7 @@ export function Preview() {
               <SelectContent>
                 <SelectItem value="minimal">Minimal</SelectItem>
                 <SelectItem value="professional">Professional</SelectItem>
+                <SelectItem value="creative">Creative</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -88,7 +90,7 @@ export function Preview() {
           </div>
         </div>
         
-        <Button onClick={handlePrint} size="sm" className="gap-2 text-blue-600 px-6 h-9 shrink-0">
+        <Button onClick={handlePrint} size="sm" className="gap-2 text-blue-600 px-6 h-9 shrink-0 tour-step-download">
           <Download className="h-4 w-4" /> Download PDF
         </Button>
       </div>
@@ -119,6 +121,7 @@ export function Preview() {
           <div ref={componentRef} className={`w-full h-full bg-white print:m-0 ${fontFamily}`}>
             {theme === 'minimal' && <MinimalTheme data={data} />}
             {theme === 'professional' && <ProfessionalTheme data={data} />}
+            {theme === 'creative' && <CreativeTheme data={data} />}
           </div>
         </div>
       </div>

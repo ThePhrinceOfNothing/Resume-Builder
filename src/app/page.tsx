@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { FileText, ArrowRight, Zap, Palette, Layout, ShieldCheck, File, FileCode } from 'lucide-react'
 import { useResumeStore, PaperSize } from '@/store/useResumeStore'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 export default function LandingPage() {
   const router = useRouter()
@@ -77,9 +78,11 @@ export default function LandingPage() {
           <Link href="#how-it-works" className="hover:text-blue-500 transition-colors">How it Works</Link>
           <Link href="#faq" className="hover:text-blue-500 transition-colors">FAQ</Link>
         </div>
+
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <a 
-            href="https://github.com/ThePhrinceOfNothing/Resume-Builder" 
+            href="https://github.com/ThePhrinceOfNothing/Resume-Builder"  
             target="_blank" 
             rel="noopener noreferrer"
             className="p-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 hover:text-slate-700 transition-all"

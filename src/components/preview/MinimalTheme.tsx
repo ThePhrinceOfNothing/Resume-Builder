@@ -2,6 +2,7 @@
 
 import { ResumeData } from '@/store/useResumeStore'
 import { Mail, Phone, MapPin, Link as LinkIcon } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
 
 export function MinimalTheme({ data }: { data: ResumeData }) {
   const { personalInfo, experience, education, skills, projects } = data
@@ -40,7 +41,9 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
       {/* Summary */}
       {personalInfo.summary && (
         <section className="mb-8">
-          <p className="text-gray-700 leading-relaxed">{personalInfo.summary}</p>
+          <div className="text-gray-700 leading-relaxed prose prose-sm max-w-none">
+            <ReactMarkdown>{personalInfo.summary}</ReactMarkdown>
+          </div>
         </section>
       )}
 
@@ -58,7 +61,9 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
                   </span>
                 </div>
                 <div className="text-gray-700 font-medium mb-2">{exp.company}</div>
-                <p className="text-gray-600 text-sm whitespace-pre-line">{exp.description}</p>
+                <div className="text-gray-600 text-sm prose prose-sm max-w-none">
+                  <ReactMarkdown>{exp.description}</ReactMarkdown>
+                </div>
               </div>
             ))}
           </div>
@@ -79,7 +84,9 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
                   </span>
                 </div>
                 <div className="text-gray-700 font-medium mb-1">{edu.school}</div>
-                <p className="text-gray-600 text-sm">{edu.description}</p>
+                <div className="text-gray-600 text-sm prose prose-sm max-w-none">
+                  <ReactMarkdown>{edu.description || ''}</ReactMarkdown>
+                </div>
               </div>
             ))}
           </div>
@@ -101,7 +108,9 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
                     </a>
                   )}
                 </div>
-                <p className="text-gray-600 text-sm whitespace-pre-line">{proj.description}</p>
+                <div className="text-gray-600 text-sm prose prose-sm max-w-none">
+                  <ReactMarkdown>{proj.description}</ReactMarkdown>
+                </div>
               </div>
             ))}
           </div>

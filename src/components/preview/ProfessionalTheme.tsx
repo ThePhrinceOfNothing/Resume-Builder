@@ -2,6 +2,7 @@
 
 import { ResumeData } from '@/store/useResumeStore'
 import { Mail, Phone, MapPin, Link as LinkIcon } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
 
 export function ProfessionalTheme({ data }: { data: ResumeData }) {
   const { personalInfo, experience, education, skills, projects } = data
@@ -51,6 +52,9 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
                   <h4 className="font-bold text-slate-800">{edu.degree}</h4>
                   <div className="text-sm text-slate-600 font-medium">{edu.school}</div>
                   <div className="text-xs text-slate-500 italic mt-1">{edu.startDate} - {edu.endDate}</div>
+                  <div className="text-slate-700 text-sm mt-2 prose prose-sm prose-slate max-w-none">
+                    <ReactMarkdown>{edu.description || ''}</ReactMarkdown>
+                  </div>
                 </div>
               ))}
             </div>
