@@ -66,7 +66,7 @@ export function Preview() {
           {/* Paper Size Selector */}
           <div className="flex items-center gap-2">
             <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Size:</span>
-            <Select value={paperSize} onValueChange={(v) => v && setPaperSize(v as any)}>
+            <Select value={paperSize} onValueChange={(v) => v && setPaperSize(v as 'a4' | 'letter')}>
               <SelectTrigger className="w-[110px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 dark:text-slate-200 font-medium">
                 <SelectValue placeholder="Size" />
               </SelectTrigger>
@@ -140,11 +140,11 @@ export function Preview() {
             >
               <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-4">Downloading your PDF</h2>
               <p className="text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
-                To generate a <strong>High-Quality, ATS-Friendly</strong> soft copy of your resume, we use your browser's native engine.
+                To generate a <strong>High-Quality, ATS-Friendly</strong> soft copy of your resume, we use your browser&apos;s native engine.
               </p>
               <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-6 text-sm">
                 <p className="text-blue-700 dark:text-blue-300 font-medium">
-                  When the print window opens, simply change the <strong>Destination / Printer</strong> to <span className="font-bold">"Save as PDF"</span>.
+                  When the print window opens, simply change the <strong>Destination / Printer</strong> to <span className="font-bold">&quot;Save as PDF&quot;</span>.
                 </p>
               </div>
               <div className="flex gap-4 justify-end">

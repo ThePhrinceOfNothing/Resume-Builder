@@ -253,7 +253,7 @@ export default function LandingPage() {
             </div>
             <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
               <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2">Where is my data saved?</h3>
-              <p className="text-slate-500 dark:text-slate-400">Your data is saved entirely on your local device (in your browser's local storage). We do not collect or store your personal information on our servers.</p>
+              <p className="text-slate-500 dark:text-slate-400">Your data is saved entirely on your local device (in your browser&apos;s local storage). We do not collect or store your personal information on our servers.</p>
             </div>
             <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
               <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2">Will the PDF pass ATS (Applicant Tracking Systems)?</h3>

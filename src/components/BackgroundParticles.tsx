@@ -9,6 +9,7 @@ export function BackgroundParticles() {
 
   // Wait until mounted to render to avoid hydration mismatch with SSR
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
