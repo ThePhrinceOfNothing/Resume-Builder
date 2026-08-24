@@ -5,10 +5,10 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
-import { Plus, Trash2 } from 'lucide-react'
+import { Plus, Trash2, ChevronUp, ChevronDown } from 'lucide-react'
 
 export function EducationForm() {
-  const { data: { education }, addEducation, updateEducation, removeEducation } = useResumeStore()
+  const { data: { education }, addEducation, updateEducation, removeEducation, moveEducation } = useResumeStore()
 
   const handleAdd = () => {
     const newEdu: Education = {
@@ -26,16 +26,36 @@ export function EducationForm() {
     <div className="space-y-6">
       {education.map((edu, index) => (
         <div key={edu.id} className="relative p-4 border rounded-lg bg-card space-y-4">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="absolute top-2 right-2 text-destructive"
-            onClick={() => removeEducation(edu.id)}
-          >
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <div className="absolute top-2 right-2 flex items-center gap-1">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8 text-slate-500 hover:text-slate-700"
+              onClick={() => moveEducation(index, 'up')}
+              disabled={index === 0}
+            >
+              <ChevronUp className="h-4 w-4" />
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8 text-slate-500 hover:text-slate-700"
+              onClick={() => moveEducation(index, 'down')}
+              disabled={index === education.length - 1}
+            >
+              <ChevronDown className="h-4 w-4" />
+            </Button>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8 text-red-500 hover:text-red-600"
+              onClick={() => removeEducation(edu.id)}
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </div>
           
-          <h4 className="font-medium text-sm">Education {index + 1}</h4>
+          <h4 className="font-bold text-slate-700">Education {index + 1}</h4>
           
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
