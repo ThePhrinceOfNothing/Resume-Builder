@@ -1,10 +1,69 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { FileText, ArrowRight, Zap, Palette, Layout, ShieldCheck } from 'lucide-react'
+import { FileText, ArrowRight, Zap, Palette, Layout, ShieldCheck, File, FileCode } from 'lucide-react'
+import { useResumeStore, PaperSize } from '@/store/useResumeStore'
 
 export default function LandingPage() {
+  const router = useRouter()
+  const { setPaperSize } = useResumeStore()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleSelectPaper = (size: PaperSize) => {
+    setPaperSize(size)
+    router.push('/editor')
+  }
+
   return (
     <div className="min-h-screen w-full bg-neo text-slate-700 font-sans selection:bg-blue-200">
       
+      {/* Paper Size Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
+          <div className="bg-neo shadow-neo-convex rounded-3xl p-8 max-w-lg w-full flex flex-col relative border border-white/40">
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 text-slate-400 hover:text-slate-600"
+            >
+              ✕
+            </button>
+            
+            <h2 className="text-2xl font-bold text-slate-700 mb-2">Choose Paper Size</h2>
+            <p className="text-slate-500 mb-8">Select the default format for your resume. You can change this later.</p>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <button 
+                onClick={() => handleSelectPaper('a4')}
+                className="flex flex-col items-center gap-4 p-6 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-2xl transition-all border border-white/20 group"
+              >
+                <div className="w-16 h-20 bg-neo shadow-neo-concave rounded-md border border-white/50 flex items-center justify-center group-hover:text-blue-500 transition-colors">
+                  <File className="h-8 w-8 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">A4</h3>
+                  <p className="text-xs text-slate-500 mt-1">210 × 297 mm</p>
+                </div>
+              </button>
+
+              <button 
+                onClick={() => handleSelectPaper('letter')}
+                className="flex flex-col items-center gap-4 p-6 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-2xl transition-all border border-white/20 group"
+              >
+                <div className="w-[72px] h-[92px] bg-neo shadow-neo-concave rounded-md border border-white/50 flex items-center justify-center group-hover:text-blue-500 transition-colors">
+                  <FileCode className="h-8 w-8 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">US Letter</h3>
+                  <p className="text-xs text-slate-500 mt-1">8.5 × 11 in</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Navbar */}
       <nav className="w-full px-8 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -18,11 +77,12 @@ export default function LandingPage() {
           <span className="hover:text-blue-500 transition-colors cursor-pointer">How it Works</span>
           <span className="hover:text-blue-500 transition-colors cursor-pointer">FAQ</span>
         </div>
-        <Link href="/editor">
-          <button className="px-6 py-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-blue-600 transition-all text-sm">
-            Go to Editor
-          </button>
-        </Link>
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="px-6 py-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-blue-600 transition-all text-sm"
+        >
+          Go to Editor
+        </button>
       </nav>
 
       {/* Hero Section */}
@@ -41,12 +101,13 @@ export default function LandingPage() {
             Stand out from the crowd with a beautifully crafted, ATS-friendly resume. Designed with stunning Neumorphism. No sign-up required.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/editor">
-              <button className="group relative flex items-center gap-3 px-8 py-4 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-lg text-blue-600 transition-all">
-                <span>Start Building Now</span>
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </button>
-            </Link>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="group relative flex items-center gap-3 px-8 py-4 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-lg text-blue-600 transition-all"
+            >
+              <span>Start Building Now</span>
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
 

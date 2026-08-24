@@ -84,12 +84,14 @@ const initialData: ResumeData = {
 }
 
 export type Theme = 'minimal' | 'professional' | 'creative'
+export type PaperSize = 'a4' | 'letter'
 
 type ResumeStore = {
   data: ResumeData
   theme: Theme
   accentColor: string
   fontFamily: string
+  paperSize: PaperSize
   updatePersonalInfo: (info: Partial<ResumeData['personalInfo']>) => void
   addExperience: (exp: Experience) => void
   updateExperience: (id: string, exp: Partial<Experience>) => void
@@ -107,6 +109,7 @@ type ResumeStore = {
   setTheme: (theme: Theme) => void
   setAccentColor: (color: string) => void
   setFontFamily: (font: string) => void
+  setPaperSize: (size: PaperSize) => void
   resetData: () => void
 }
 
@@ -117,6 +120,7 @@ export const useResumeStore = create<ResumeStore>()(
       theme: 'minimal',
       accentColor: '#3b82f6', // default blue
       fontFamily: 'font-sans',
+      paperSize: 'a4',
       updatePersonalInfo: (info) =>
         set((state) => ({
           data: {
@@ -215,6 +219,7 @@ export const useResumeStore = create<ResumeStore>()(
       setTheme: (theme) => set({ theme }),
       setAccentColor: (accentColor) => set({ accentColor }),
       setFontFamily: (fontFamily) => set({ fontFamily }),
+      setPaperSize: (paperSize) => set({ paperSize }),
       resetData: () => set({ data: initialData }),
     }),
     {

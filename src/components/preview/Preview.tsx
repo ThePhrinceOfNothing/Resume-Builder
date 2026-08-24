@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select"
 
 export function Preview() {
-  const { data, theme, setTheme, accentColor, setAccentColor, fontFamily, setFontFamily } = useResumeStore()
+  const { data, theme, setTheme, accentColor, setAccentColor, fontFamily, setFontFamily, paperSize, setPaperSize } = useResumeStore()
   const componentRef = useRef<HTMLDivElement>(null)
 
   const handlePrint = useReactToPrint({
@@ -59,6 +59,20 @@ export function Preview() {
             </Select>
           </div>
 
+          {/* Paper Size Selector */}
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-semibold text-slate-500">Size:</span>
+            <Select value={paperSize} onValueChange={(v) => v && setPaperSize(v as any)}>
+              <SelectTrigger className="w-[110px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
+                <SelectValue placeholder="Size" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="a4">A4</SelectItem>
+                <SelectItem value="letter">US Letter</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           {/* Color Picker */}
           <div className="flex items-center gap-2">
             <span className="text-sm font-semibold text-slate-500">Color:</span>
@@ -81,12 +95,12 @@ export function Preview() {
 
       {/* Preview Area (Scrollable) */}
       <div className="flex-1 overflow-auto p-8 flex justify-center items-start print:p-0 print:overflow-visible custom-scrollbar">
-        {/* A4 Paper Wrapper */}
+        {/* Paper Wrapper */}
         <div 
           className="bg-white print:shadow-none print:scale-100 origin-top shrink-0 relative"
           style={{
-            width: '210mm',
-            minHeight: '297mm',
+            width: paperSize === 'a4' ? '210mm' : '8.5in',
+            minHeight: paperSize === 'a4' ? '297mm' : '11in',
             boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05)',
             transform: 'scale(0.85)',
             transformOrigin: 'top center',
@@ -94,6 +108,14 @@ export function Preview() {
             '--theme-color': accentColor,
           } as React.CSSProperties}
         >
+          <style>{`
+            @media print {
+              @page {
+                size: ${paperSize === 'a4' ? 'A4' : 'letter'};
+                margin: 0;
+              }
+            }
+          `}</style>
           <div ref={componentRef} className={`w-full h-full bg-white print:m-0 ${fontFamily}`}>
             {theme === 'minimal' && <MinimalTheme data={data} />}
             {theme === 'professional' && <ProfessionalTheme data={data} />}
