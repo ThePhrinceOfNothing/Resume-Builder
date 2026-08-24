@@ -6,6 +6,7 @@ import { MinimalTheme } from './MinimalTheme'
 import { ProfessionalTheme } from './ProfessionalTheme'
 import { Button } from '@/components/ui/button'
 import { Download, LayoutTemplate } from 'lucide-react'
+import { useReactToPrint } from 'react-to-print'
 import {
   Select,
   SelectContent,
@@ -18,23 +19,10 @@ export function Preview() {
   const { data, theme, setTheme, accentColor, setAccentColor, fontFamily, setFontFamily } = useResumeStore()
   const componentRef = useRef<HTMLDivElement>(null)
 
-  const handleDownload = async () => {
-    if (typeof window !== 'undefined' && componentRef.current) {
-      // Dynamically import html2pdf so it only loads on the client side
-      const html2pdf = (await import('html2pdf.js')).default
-      
-      const element = componentRef.current
-      const opt = {
-        margin:       0,
-        filename:     `${data.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      }
-      
-      html2pdf().set(opt).from(element).save()
-    }
-  }
+  const handlePrint = useReactToPrint({
+    contentRef: componentRef,
+    documentTitle: `${data.personalInfo.fullName.replace(/\s+/g, '_')}_Resume`,
+  })
 
   return (
     <div className="h-full w-full flex flex-col">
@@ -86,7 +74,7 @@ export function Preview() {
           </div>
         </div>
         
-        <Button onClick={handleDownload} size="sm" className="gap-2 text-blue-600 px-6 h-9 shrink-0">
+        <Button onClick={handlePrint} size="sm" className="gap-2 text-blue-600 px-6 h-9 shrink-0">
           <Download className="h-4 w-4" /> Download PDF
         </Button>
       </div>
