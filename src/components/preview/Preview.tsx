@@ -1,6 +1,7 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useResumeStore, Theme } from '@/store/useResumeStore'
 import { MinimalTheme } from './MinimalTheme'
 import { ProfessionalTheme } from './ProfessionalTheme'
@@ -19,8 +20,9 @@ import {
 export function Preview() {
   const { data, theme, setTheme, accentColor, setAccentColor, fontFamily, setFontFamily, paperSize, setPaperSize } = useResumeStore()
   const componentRef = useRef<HTMLDivElement>(null)
+  const [showPdfInstruction, setShowPdfInstruction] = useState(false)
 
-  const handlePrint = useReactToPrint({
+  const doPrint = useReactToPrint({
     contentRef: componentRef,
     documentTitle: `${data.personalInfo.fullName.replace(/\s+/g, '_')}_Resume`,
   })
@@ -90,7 +92,7 @@ export function Preview() {
           </div>
         </div>
         
-        <Button onClick={handlePrint} size="sm" className="gap-2 text-blue-600 px-6 h-9 shrink-0 tour-step-download">
+        <Button onClick={() => setShowPdfInstruction(true)} size="sm" className="gap-2 text-blue-600 px-6 h-9 shrink-0 tour-step-download">
           <Download className="h-4 w-4" /> Download PDF
         </Button>
       </div>
@@ -125,6 +127,36 @@ export function Preview() {
           </div>
         </div>
       </div>
+
+      {/* PDF Instruction Modal */}
+      <AnimatePresence>
+        {showPdfInstruction && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm print:hidden">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-neo shadow-neo-convex rounded-3xl p-8 max-w-md w-full relative border border-white/20"
+            >
+              <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-4">Downloading your PDF</h2>
+              <p className="text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+                To generate a <strong>High-Quality, ATS-Friendly</strong> soft copy of your resume, we use your browser's native engine.
+              </p>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-6 text-sm">
+                <p className="text-blue-700 dark:text-blue-300 font-medium">
+                  👉 When the print window opens, simply change the <strong>Destination / Printer</strong> to <span className="font-bold">"Save as PDF"</span>.
+                </p>
+              </div>
+              <div className="flex gap-4 justify-end">
+                <Button variant="outline" onClick={() => setShowPdfInstruction(false)}>Cancel</Button>
+                <Button onClick={() => { setShowPdfInstruction(false); setTimeout(() => doPrint(), 300); }} className="bg-blue-600 text-white hover:bg-blue-700 border-none shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+                  Got it, Continue
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
