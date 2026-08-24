@@ -7,7 +7,7 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
   const { personalInfo, experience, education, skills, projects } = data
 
   return (
-    <div className="bg-white text-black p-8 max-w-[800px] mx-auto min-h-[1056px] shadow-sm font-sans" id="resume-preview">
+    <div className="text-black p-8 font-sans h-full" id="resume-preview">
       {/* Header */}
       <header className="border-b-4 pb-6 mb-6" style={{ borderColor: 'var(--theme-color)' }}>
         <h1 className="text-4xl font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--theme-color)' }}>{personalInfo.fullName}</h1>

@@ -7,7 +7,7 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
   const { personalInfo, experience, education, skills, projects } = data
 
   return (
-    <div className="bg-white text-slate-800 p-8 max-w-[800px] mx-auto min-h-[1056px] shadow-sm flex" id="resume-preview">
+    <div className="text-slate-800 p-8 flex h-full" id="resume-preview">
       
       {/* Left Column */}
       <div className="w-1/3 pr-6 border-r" style={{ borderColor: 'var(--theme-color)' }}>
