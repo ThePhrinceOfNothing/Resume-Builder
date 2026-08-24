@@ -92,7 +92,7 @@ export default function LandingPage() {
           </a>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="px-6 py-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-blue-600 transition-all text-sm"
+            className="hidden md:block px-6 py-2.5 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-blue-600 transition-all text-sm"
           >
             Go to Editor
           </button>
