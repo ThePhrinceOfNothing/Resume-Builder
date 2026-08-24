@@ -1,34 +1,36 @@
-import { Editor } from '@/components/editor/Editor'
-import { Preview } from '@/components/preview/Preview'
-import { FileText } from 'lucide-react'
+import Link from 'next/link'
+import { FileText, ArrowRight } from 'lucide-react'
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <main className="flex flex-col h-screen w-full overflow-hidden bg-neo text-slate-700">
+    <main className="min-h-screen w-full bg-neo flex flex-col items-center justify-center p-6 text-slate-700">
       
-      {/* Top App Header */}
-      <header className="h-16 px-6 shrink-0 z-20 print:hidden flex items-center bg-neo shadow-neo-convex m-4 rounded-xl">
-        <div className="flex items-center gap-2 font-bold text-lg tracking-wide text-slate-700">
-          <div className="p-2 rounded-full shadow-neo-convex-sm bg-neo">
-            <FileText className="h-5 w-5 text-blue-500" />
-          </div>
-          <span className="ml-2">RésuméFlow</span>
-        </div>
-      </header>
-
-      {/* Main Content Split */}
-      <div className="flex flex-1 overflow-hidden p-4 gap-6 pt-0">
+      {/* Central Card */}
+      <div className="w-full max-w-2xl bg-neo shadow-neo-convex rounded-3xl p-12 md:p-16 flex flex-col items-center text-center">
         
-        {/* Left Pane - Editor */}
-        <div className="w-[500px] xl:w-[600px] print:hidden overflow-hidden flex flex-col rounded-2xl bg-neo shadow-neo-convex">
-          <Editor />
+        {/* Logo/Icon */}
+        <div className="p-5 rounded-full shadow-neo-convex bg-neo mb-8">
+          <FileText className="h-12 w-12 text-blue-500" />
         </div>
-
-        {/* Right Pane - Preview */}
-        <div className="flex-1 flex flex-col rounded-2xl bg-neo shadow-neo-convex overflow-hidden print:shadow-none print:bg-white">
-          <Preview />
-        </div>
+        
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-slate-700">
+          RésuméFlow
+        </h1>
+        
+        <p className="text-lg text-slate-500 font-medium mb-12 max-w-lg">
+          Craft professional, ATS-friendly resumes in minutes using our beautiful Neumorphic editor. Free, simple, and absolutely magic.
+        </p>
+        
+        {/* Call to Action Button */}
+        <Link href="/editor">
+          <button className="group relative flex items-center gap-3 px-8 py-4 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full font-bold text-lg text-blue-600 transition-all">
+            <span>Create Your Résumé</span>
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </button>
+        </Link>
+        
       </div>
+      
     </main>
   )
 }

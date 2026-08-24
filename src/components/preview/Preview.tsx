@@ -33,7 +33,7 @@ export function Preview() {
           {/* Theme Selector */}
           <div className="flex items-center gap-2">
             <LayoutTemplate className="h-4 w-4 text-blue-500" />
-            <Select value={theme} onValueChange={(v) => setTheme(v as Theme)}>
+            <Select value={theme} onValueChange={(v) => v && setTheme(v as Theme)}>
               <SelectTrigger className="w-[140px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
@@ -47,7 +47,7 @@ export function Preview() {
           {/* Font Selector */}
           <div className="flex items-center gap-2">
             <span className="text-sm font-semibold text-slate-500">Font:</span>
-            <Select value={fontFamily} onValueChange={setFontFamily}>
+            <Select value={fontFamily} onValueChange={(v) => v && setFontFamily(v)}>
               <SelectTrigger className="w-[120px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
                 <SelectValue placeholder="Font" />
               </SelectTrigger>
