@@ -20,7 +20,7 @@ export function Preview() {
   const componentRef = useRef<HTMLDivElement>(null)
 
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
+    contentRef: componentRef,
     documentTitle: `${data.personalInfo.fullName.replace(/\s+/g, '_')}_Resume`,
   })
 
@@ -28,14 +28,14 @@ export function Preview() {
     <div className="h-full w-full flex flex-col">
       
       {/* Top Toolbar */}
-      <div className="h-14 border-b border-zinc-200 bg-white/80 backdrop-blur-sm flex items-center justify-between px-6 shrink-0 z-10 print:hidden">
+      <div className="h-16 flex items-center justify-between px-6 shrink-0 z-10 print:hidden mb-2">
         <div className="flex items-center gap-4">
-          <div className="flex items-center text-sm font-medium text-slate-500 gap-2">
-            <LayoutTemplate className="h-4 w-4" />
+          <div className="flex items-center text-sm font-semibold text-slate-500 gap-2">
+            <LayoutTemplate className="h-4 w-4 text-blue-500" />
             <span>Theme:</span>
           </div>
           <Select value={theme} onValueChange={(v) => setTheme(v as Theme)}>
-            <SelectTrigger className="w-[180px] h-9 bg-white">
+            <SelectTrigger className="w-[180px] h-9 bg-neo shadow-neo-convex-sm border-none text-slate-700 font-medium">
               <SelectValue placeholder="Select Theme" />
             </SelectTrigger>
             <SelectContent>
@@ -45,7 +45,7 @@ export function Preview() {
           </Select>
         </div>
         
-        <Button onClick={handlePrint} size="sm" className="gap-2 bg-blue-600 hover:bg-blue-700 text-white">
+        <Button onClick={handlePrint} size="sm" className="gap-2 text-blue-600 px-6 h-9">
           <Download className="h-4 w-4" /> Download PDF
         </Button>
       </div>
