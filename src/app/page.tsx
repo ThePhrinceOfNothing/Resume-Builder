@@ -1,4 +1,5 @@
 'use client'
+import { BackgroundParticles } from '@/components/BackgroundParticles';
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -19,6 +20,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen w-full bg-neo text-slate-700 dark:text-slate-200 font-sans selection:bg-blue-200 overflow-x-hidden">
+      <BackgroundParticles />
       
       {/* Paper Size Modal */}
       {isModalOpen && (
@@ -66,7 +68,7 @@ export default function LandingPage() {
       )}
 
       {/* Navbar */}
-      <nav className="w-full px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
+      <nav className="relative z-10 w-full px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-full shadow-neo-convex bg-neo">
             <FileText className="h-6 w-6 text-blue-500" />
@@ -100,7 +102,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-16 pb-16 sm:pb-24 flex flex-col lg:flex-row items-center gap-8 sm:gap-16">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-16 pb-16 sm:pb-24 flex flex-col lg:flex-row items-center gap-8 sm:gap-16">
         
         {/* Left: Text Content */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
@@ -162,7 +164,7 @@ export default function LandingPage() {
       </main>
 
       {/* Features Section */}
-      <section id="features" className="w-full bg-neo py-24 border-t border-white/40">
+      <section id="features" className="relative z-10 w-full bg-neo py-24 border-t border-white/40">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700 dark:text-slate-200">Everything you need</h2>
@@ -205,7 +207,7 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="w-full bg-neo py-24 border-t border-white/40">
+      <section id="how-it-works" className="relative z-10 w-full bg-neo py-24 border-t border-white/40">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700 dark:text-slate-200">How it Works</h2>
@@ -238,7 +240,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="w-full bg-neo py-24 border-t border-white/40">
+      <section id="faq" className="relative z-10 w-full bg-neo py-24 border-t border-white/40">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700 dark:text-slate-200">Frequently Asked Questions</h2>
@@ -262,7 +264,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full py-8 border-t border-slate-300/30 bg-neo flex flex-col items-center gap-4">
+      <footer className="relative z-10 w-full py-8 border-t border-slate-300/30 bg-neo flex flex-col items-center gap-4">
         <a 
           href="https://github.com/ThePhrinceOfNothing/Resume-Builder" 
           target="_blank" 
