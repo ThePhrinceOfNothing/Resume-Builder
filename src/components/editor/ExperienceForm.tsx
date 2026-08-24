@@ -30,7 +30,7 @@ export function ExperienceForm() {
             <Button 
               variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
+              className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-blue-500 rounded-full"
               onClick={() => moveExperience(index, 'up')}
               disabled={index === 0}
             >
@@ -39,7 +39,7 @@ export function ExperienceForm() {
             <Button 
               variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
+              className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-blue-500 rounded-full"
               onClick={() => moveExperience(index, 'down')}
               disabled={index === experience.length - 1}
             >
@@ -55,11 +55,11 @@ export function ExperienceForm() {
             </Button>
           </div>
           
-          <h4 className="font-bold text-slate-600 text-lg">Experience {index + 1}</h4>
+          <h4 className="font-bold text-slate-600 dark:text-slate-300 text-lg">Experience {index + 1}</h4>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">Company</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">Company</Label>
               <Input 
                 value={exp.company}
                 onChange={(e) => updateExperience(exp.id, { company: e.target.value })}
@@ -67,7 +67,7 @@ export function ExperienceForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">Role</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">Role</Label>
               <Input 
                 value={exp.role}
                 onChange={(e) => updateExperience(exp.id, { role: e.target.value })}
@@ -75,7 +75,7 @@ export function ExperienceForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">Start Date</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">Start Date</Label>
               <Input 
                 value={exp.startDate}
                 onChange={(e) => updateExperience(exp.id, { startDate: e.target.value })}
@@ -84,7 +84,7 @@ export function ExperienceForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">End Date</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">End Date</Label>
               <Input 
                 value={exp.endDate}
                 onChange={(e) => updateExperience(exp.id, { endDate: e.target.value })}
@@ -94,7 +94,7 @@ export function ExperienceForm() {
             </div>
           </div>
           <div className="space-y-2">
-            <Label className="text-slate-500 ml-1">Description (Markdown supported)</Label>
+            <Label className="text-slate-500 dark:text-slate-400 ml-1">Description (Markdown supported)</Label>
             <Textarea 
               value={exp.description}
               onChange={(e) => updateExperience(exp.id, { description: e.target.value })}

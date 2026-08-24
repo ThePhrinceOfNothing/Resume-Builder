@@ -12,7 +12,7 @@ export function PersonalInfoForm() {
     <div className="space-y-8 p-6 bg-neo shadow-neo-convex rounded-2xl border-none">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label className="text-slate-500 ml-1">Full Name</Label>
+          <Label className="text-slate-500 dark:text-slate-400 ml-1">Full Name</Label>
           <Input 
             value={personalInfo.fullName}
             onChange={(e) => updatePersonalInfo({ fullName: e.target.value })}
@@ -21,7 +21,7 @@ export function PersonalInfoForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-slate-500 ml-1">Job Title</Label>
+          <Label className="text-slate-500 dark:text-slate-400 ml-1">Job Title</Label>
           <Input 
             value={personalInfo.jobTitle}
             onChange={(e) => updatePersonalInfo({ jobTitle: e.target.value })}
@@ -30,7 +30,7 @@ export function PersonalInfoForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-slate-500 ml-1">Email</Label>
+          <Label className="text-slate-500 dark:text-slate-400 ml-1">Email</Label>
           <Input 
             type="email"
             value={personalInfo.email}
@@ -40,7 +40,7 @@ export function PersonalInfoForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-slate-500 ml-1">Phone</Label>
+          <Label className="text-slate-500 dark:text-slate-400 ml-1">Phone</Label>
           <Input 
             type="tel"
             value={personalInfo.phone}
@@ -50,7 +50,7 @@ export function PersonalInfoForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-slate-500 ml-1">Location</Label>
+          <Label className="text-slate-500 dark:text-slate-400 ml-1">Location</Label>
           <Input 
             value={personalInfo.location}
             onChange={(e) => updatePersonalInfo({ location: e.target.value })}
@@ -59,7 +59,7 @@ export function PersonalInfoForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-slate-500 ml-1">Website / Portfolio</Label>
+          <Label className="text-slate-500 dark:text-slate-400 ml-1">Website / Portfolio</Label>
           <Input 
             type="url"
             value={personalInfo.website}
@@ -71,7 +71,7 @@ export function PersonalInfoForm() {
       </div>
       
       <div className="space-y-2">
-        <Label className="text-slate-500 ml-1">Professional Summary</Label>
+        <Label className="text-slate-500 dark:text-slate-400 ml-1">Professional Summary</Label>
         <Textarea 
           value={personalInfo.summary}
           onChange={(e) => updatePersonalInfo({ summary: e.target.value })}

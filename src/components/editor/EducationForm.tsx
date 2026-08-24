@@ -30,7 +30,7 @@ export function EducationForm() {
             <Button 
               variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
+              className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-blue-500 rounded-full"
               onClick={() => moveEducation(index, 'up')}
               disabled={index === 0}
             >
@@ -39,7 +39,7 @@ export function EducationForm() {
             <Button 
               variant="default" 
               size="icon" 
-              className="h-8 w-8 text-slate-500 hover:text-blue-500 rounded-full"
+              className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-blue-500 rounded-full"
               onClick={() => moveEducation(index, 'down')}
               disabled={index === education.length - 1}
             >
@@ -55,11 +55,11 @@ export function EducationForm() {
             </Button>
           </div>
           
-          <h4 className="font-bold text-slate-600 text-lg">Education {index + 1}</h4>
+          <h4 className="font-bold text-slate-600 dark:text-slate-300 text-lg">Education {index + 1}</h4>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">School</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">School</Label>
               <Input 
                 value={edu.school}
                 onChange={(e) => updateEducation(edu.id, { school: e.target.value })}
@@ -67,7 +67,7 @@ export function EducationForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">Degree / Major</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">Degree / Major</Label>
               <Input 
                 value={edu.degree}
                 onChange={(e) => updateEducation(edu.id, { degree: e.target.value })}
@@ -75,7 +75,7 @@ export function EducationForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">Start Date</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">Start Date</Label>
               <Input 
                 value={edu.startDate}
                 onChange={(e) => updateEducation(edu.id, { startDate: e.target.value })}
@@ -84,7 +84,7 @@ export function EducationForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-slate-500 ml-1">End Date</Label>
+              <Label className="text-slate-500 dark:text-slate-400 ml-1">End Date</Label>
               <Input 
                 value={edu.endDate}
                 onChange={(e) => updateEducation(edu.id, { endDate: e.target.value })}
@@ -94,7 +94,7 @@ export function EducationForm() {
             </div>
           </div>
           <div className="space-y-2">
-            <Label className="text-slate-500 ml-1">Description</Label>
+            <Label className="text-slate-500 dark:text-slate-400 ml-1">Description</Label>
             <Textarea 
               value={edu.description}
               onChange={(e) => updateEducation(edu.id, { description: e.target.value })}

@@ -28,7 +28,7 @@ export function SkillsForm() {
   return (
     <div className="space-y-6 p-6 bg-neo shadow-neo-convex rounded-2xl border-none">
       <div className="space-y-2">
-        <Label htmlFor="skills" className="text-slate-500 ml-1">Add Skill (Press Enter)</Label>
+        <Label htmlFor="skills" className="text-slate-500 dark:text-slate-400 ml-1">Add Skill (Press Enter)</Label>
         <Input 
           id="skills"
           value={inputValue}
@@ -43,7 +43,7 @@ export function SkillsForm() {
         {skills.map((skill) => (
           <div 
             key={skill} 
-            className="flex items-center gap-2 bg-neo shadow-neo-convex px-4 py-2 rounded-full text-sm font-semibold text-slate-600"
+            className="flex items-center gap-2 bg-neo shadow-neo-convex px-4 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300"
           >
             <span>{skill}</span>
             <button 

@@ -54,19 +54,19 @@ export function Editor() {
     <div className="h-full w-full flex flex-col bg-transparent">
       <div className="p-6 pb-2 shrink-0 flex justify-between items-start">
         <div>
-          <h1 className="text-2xl font-bold text-slate-700 mb-1">Edit Résumé</h1>
-          <p className="text-sm text-slate-500 font-medium">Your changes are saved automatically.</p>
+          <h1 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-1">Edit Résumé</h1>
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Your changes are saved automatically.</p>
         </div>
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <label className="cursor-pointer p-2 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 hover:text-blue-500 transition-all" title="Import JSON Backup">
+          <label className="cursor-pointer p-2 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-all" title="Import JSON Backup">
             <Upload className="h-4 w-4" />
             <input type="file" accept=".json" className="hidden" onChange={handleImport} />
           </label>
           <button 
             onClick={handleExport}
-            className="p-2 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 hover:text-blue-500 transition-all"
+            className="p-2 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-full text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-all"
             title="Export JSON Backup"
           >
             <Download className="h-4 w-4" />
@@ -81,7 +81,7 @@ export function Editor() {
               <TabsTrigger 
                 key={tab.id}
                 value={tab.id} 
-                className="relative px-4 py-2 rounded-full border-none data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 font-semibold z-10 transition-colors"
+                className="relative px-4 py-2 rounded-full border-none data-active:!bg-transparent data-active:text-blue-600 data-active:!shadow-none text-slate-500 dark:text-slate-400 font-semibold z-10 transition-colors"
               >
                 {activeTab === tab.id && (
                   <motion.div

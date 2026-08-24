@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { Joyride, Step } from 'react-joyride'
@@ -54,15 +54,6 @@ export function TourGuide() {
         steps={steps}
         run={run}
         continuous
-        showSkipButton
-        hideCloseButton
-        disableOverlayClose
-        spotlightPadding={4}
-        callback={(data: any) => {
-          if (data.status === 'finished' || data.status === 'skipped') {
-            setRun(false)
-          }
-        }}
       />
     </>
   )

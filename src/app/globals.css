@@ -82,6 +82,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Neumorphism Base Variables */
+  --neo-bg: #e0e5ec;
+  --neo-shadow-dark-rgb: 163, 177, 198;
+  --neo-shadow-light-rgb: 255, 255, 255;
 }
 
 .dark {
@@ -116,6 +121,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Neumorphism Dark Mode Variables */
+  --neo-bg: #1e293b;
+  --neo-shadow-dark-rgb: 15, 23, 42;
+  --neo-shadow-light-rgb: 51, 65, 85;
 }
 
 @layer base {
@@ -133,22 +143,22 @@
 
 @layer utilities {
   .bg-neo {
-    background-color: #e0e5ec;
+    background-color: var(--neo-bg);
   }
   .shadow-neo-convex {
-    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5);
+    box-shadow: 9px 9px 16px rgba(var(--neo-shadow-dark-rgb), 0.6), -9px -9px 16px rgba(var(--neo-shadow-light-rgb), 0.5);
   }
   .shadow-neo-concave {
-    box-shadow: inset 6px 6px 10px 0 rgba(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: inset 6px 6px 10px 0 rgba(var(--neo-shadow-dark-rgb), 0.7), inset -6px -6px 10px 0 rgba(var(--neo-shadow-light-rgb), 0.8);
   }
   .shadow-neo-convex-sm {
-    box-shadow: 5px 5px 10px rgb(163, 177, 198, 0.6), -5px -5px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 5px 5px 10px rgba(var(--neo-shadow-dark-rgb), 0.6), -5px -5px 10px rgba(var(--neo-shadow-light-rgb), 0.5);
   }
   .shadow-neo-concave-sm {
-    box-shadow: inset 3px 3px 6px 0 rgba(163, 177, 198, 0.7), inset -3px -3px 6px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: inset 3px 3px 6px 0 rgba(var(--neo-shadow-dark-rgb), 0.7), inset -3px -3px 6px 0 rgba(var(--neo-shadow-light-rgb), 0.8);
   }
   .shadow-neo-active {
-    box-shadow: inset 2px 2px 5px 0 rgba(163, 177, 198, 0.7), inset -2px -2px 5px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: inset 2px 2px 5px 0 rgba(var(--neo-shadow-dark-rgb), 0.7), inset -2px -2px 5px 0 rgba(var(--neo-shadow-light-rgb), 0.8);
   }
 }
 
