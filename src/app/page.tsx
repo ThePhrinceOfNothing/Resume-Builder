@@ -34,7 +34,7 @@ export default function LandingPage() {
             <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-2">Choose Paper Size</h2>
             <p className="text-slate-500 dark:text-slate-400 mb-8">Select the default format for your resume. You can change this later.</p>
             
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <button 
                 onClick={() => handleSelectPaper('a4')}
                 className="flex flex-col items-center gap-4 p-6 bg-neo shadow-neo-convex hover:shadow-neo-convex-sm active:shadow-neo-active rounded-2xl transition-all border border-white/20 group"
@@ -44,7 +44,7 @@ export default function LandingPage() {
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-slate-700 dark:text-slate-200 group-hover:text-blue-600 transition-colors">A4</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">210 × 297 mm</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">210 x 297 mm</p>
                 </div>
               </button>
 
@@ -57,7 +57,7 @@ export default function LandingPage() {
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-slate-700 dark:text-slate-200 group-hover:text-blue-600 transition-colors">US Letter</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">8.5 × 11 in</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">8.5 x 11 in</p>
                 </div>
               </button>
             </div>

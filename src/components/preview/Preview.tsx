@@ -96,7 +96,7 @@ export function Preview() {
       </div>
 
       {/* Preview Area (Scrollable) */}
-      <div className="flex-1 overflow-auto p-8 flex justify-center items-start print:p-0 print:overflow-visible custom-scrollbar">
+      <div className="flex-1 overflow-auto p-4 lg:p-8 flex justify-start lg:justify-center items-start print:p-0 print:overflow-visible custom-scrollbar tour-step-preview">
         {/* Paper Wrapper */}
         <div 
           className="bg-white print:shadow-none print:scale-100 origin-top shrink-0 relative"
