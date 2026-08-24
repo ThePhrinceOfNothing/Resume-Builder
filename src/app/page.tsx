@@ -74,8 +74,8 @@ export default function LandingPage() {
         </div>
         <div className="hidden md:flex items-center gap-8 font-semibold text-slate-500">
           <Link href="#features" className="hover:text-blue-500 transition-colors">Features</Link>
-          <span className="hover:text-blue-500 transition-colors cursor-pointer">How it Works</span>
-          <span className="hover:text-blue-500 transition-colors cursor-pointer">FAQ</span>
+          <Link href="#how-it-works" className="hover:text-blue-500 transition-colors">How it Works</Link>
+          <Link href="#faq" className="hover:text-blue-500 transition-colors">FAQ</Link>
         </div>
         <button 
           onClick={() => setIsModalOpen(true)}
@@ -186,6 +186,63 @@ export default function LandingPage() {
               title="Free Forever"
               description="No paywalls, no watermarks, no sign-ups. Your data stays locally on your device."
             />
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="w-full bg-neo py-24 border-t border-white/40">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700">How it Works</h2>
+            <p className="text-slate-500 font-medium max-w-2xl mx-auto">Three simple steps to your new professional resume.</p>
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center relative">
+            {/* Step 1 */}
+            <div className="flex-1 bg-neo shadow-neo-convex rounded-3xl p-8 text-center flex flex-col items-center gap-4 border border-white/20 z-10 w-full">
+              <div className="w-12 h-12 rounded-full shadow-neo-concave bg-neo flex items-center justify-center font-bold text-xl text-blue-500">1</div>
+              <h3 className="text-xl font-bold text-slate-700">Choose Format</h3>
+              <p className="text-slate-500">Select A4 or US Letter size and jump right into the editor.</p>
+            </div>
+            
+            {/* Step 2 */}
+            <div className="flex-1 bg-neo shadow-neo-convex rounded-3xl p-8 text-center flex flex-col items-center gap-4 border border-white/20 z-10 w-full">
+              <div className="w-12 h-12 rounded-full shadow-neo-concave bg-neo flex items-center justify-center font-bold text-xl text-blue-500">2</div>
+              <h3 className="text-xl font-bold text-slate-700">Fill Details</h3>
+              <p className="text-slate-500">Add your experience, education, and skills in a beautiful UI.</p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex-1 bg-neo shadow-neo-convex rounded-3xl p-8 text-center flex flex-col items-center gap-4 border border-white/20 z-10 w-full">
+              <div className="w-12 h-12 rounded-full shadow-neo-concave bg-neo flex items-center justify-center font-bold text-xl text-blue-500">3</div>
+              <h3 className="text-xl font-bold text-slate-700">Export PDF</h3>
+              <p className="text-slate-500">Customize colors and fonts, then download a pixel-perfect PDF.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="w-full bg-neo py-24 border-t border-white/40">
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-700">Frequently Asked Questions</h2>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
+              <h3 className="text-xl font-bold text-slate-700 mb-2">Is it completely free?</h3>
+              <p className="text-slate-500">Yes! RésuméFlow is 100% free and open-source. There are no hidden fees, subscriptions, or watermarks on your exported PDFs.</p>
+            </div>
+            <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
+              <h3 className="text-xl font-bold text-slate-700 mb-2">Where is my data saved?</h3>
+              <p className="text-slate-500">Your data is saved entirely on your local device (in your browser's local storage). We do not collect or store your personal information on our servers.</p>
+            </div>
+            <div className="bg-neo shadow-neo-convex rounded-3xl p-8 border border-white/20">
+              <h3 className="text-xl font-bold text-slate-700 mb-2">Will the PDF pass ATS (Applicant Tracking Systems)?</h3>
+              <p className="text-slate-500">Yes! Our templates are designed to be easily readable by ATS software. When you export to PDF, the text remains selectable and structured.</p>
+            </div>
           </div>
         </div>
       </section>
