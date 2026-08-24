@@ -9,29 +9,29 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
   return (
     <div className="bg-white text-black p-8 max-w-[800px] mx-auto min-h-[1056px] shadow-sm font-sans" id="resume-preview">
       {/* Header */}
-      <header className="border-b-2 border-black pb-6 mb-6">
-        <h1 className="text-4xl font-bold uppercase tracking-wider mb-2">{personalInfo.fullName}</h1>
+      <header className="border-b-4 pb-6 mb-6" style={{ borderColor: 'var(--theme-color)' }}>
+        <h1 className="text-4xl font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--theme-color)' }}>{personalInfo.fullName}</h1>
         <h2 className="text-xl text-gray-600 mb-4">{personalInfo.jobTitle}</h2>
         
         <div className="flex flex-wrap gap-4 text-sm text-gray-500">
           {personalInfo.email && (
             <div className="flex items-center gap-1">
-              <Mail className="h-4 w-4" /> {personalInfo.email}
+              <Mail className="h-4 w-4" style={{ color: 'var(--theme-color)' }} /> {personalInfo.email}
             </div>
           )}
           {personalInfo.phone && (
             <div className="flex items-center gap-1">
-              <Phone className="h-4 w-4" /> {personalInfo.phone}
+              <Phone className="h-4 w-4" style={{ color: 'var(--theme-color)' }} /> {personalInfo.phone}
             </div>
           )}
           {personalInfo.location && (
             <div className="flex items-center gap-1">
-              <MapPin className="h-4 w-4" /> {personalInfo.location}
+              <MapPin className="h-4 w-4" style={{ color: 'var(--theme-color)' }} /> {personalInfo.location}
             </div>
           )}
           {personalInfo.website && (
             <div className="flex items-center gap-1">
-              <LinkIcon className="h-4 w-4" /> {personalInfo.website}
+              <LinkIcon className="h-4 w-4" style={{ color: 'var(--theme-color)' }} /> {personalInfo.website}
             </div>
           )}
         </div>
@@ -96,7 +96,7 @@ export function MinimalTheme({ data }: { data: ResumeData }) {
                 <div className="flex justify-between items-baseline mb-1">
                   <h4 className="font-bold text-lg">{proj.title}</h4>
                   {proj.link && (
-                    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                    <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-sm hover:underline" style={{ color: 'var(--theme-color)' }}>
                       {proj.link}
                     </a>
                   )}

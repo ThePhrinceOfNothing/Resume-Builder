@@ -88,18 +88,25 @@ export type Theme = 'minimal' | 'professional' | 'creative'
 type ResumeStore = {
   data: ResumeData
   theme: Theme
+  accentColor: string
+  fontFamily: string
   updatePersonalInfo: (info: Partial<ResumeData['personalInfo']>) => void
   addExperience: (exp: Experience) => void
   updateExperience: (id: string, exp: Partial<Experience>) => void
   removeExperience: (id: string) => void
+  moveExperience: (index: number, direction: 'up' | 'down') => void
   addEducation: (edu: Education) => void
   updateEducation: (id: string, edu: Partial<Education>) => void
   removeEducation: (id: string) => void
+  moveEducation: (index: number, direction: 'up' | 'down') => void
   addProject: (proj: Project) => void
   updateProject: (id: string, proj: Partial<Project>) => void
   removeProject: (id: string) => void
+  moveProject: (index: number, direction: 'up' | 'down') => void
   updateSkills: (skills: string[]) => void
   setTheme: (theme: Theme) => void
+  setAccentColor: (color: string) => void
+  setFontFamily: (font: string) => void
   resetData: () => void
 }
 
@@ -108,6 +115,8 @@ export const useResumeStore = create<ResumeStore>()(
     (set) => ({
       data: initialData,
       theme: 'minimal',
+      accentColor: '#3b82f6', // default blue
+      fontFamily: 'font-sans',
       updatePersonalInfo: (info) =>
         set((state) => ({
           data: {
@@ -133,6 +142,16 @@ export const useResumeStore = create<ResumeStore>()(
             experience: state.data.experience.filter((e) => e.id !== id),
           },
         })),
+      moveExperience: (index, direction) =>
+        set((state) => {
+          const newExp = [...state.data.experience]
+          if (direction === 'up' && index > 0) {
+            ;[newExp[index - 1], newExp[index]] = [newExp[index], newExp[index - 1]]
+          } else if (direction === 'down' && index < newExp.length - 1) {
+            ;[newExp[index + 1], newExp[index]] = [newExp[index], newExp[index + 1]]
+          }
+          return { data: { ...state.data, experience: newExp } }
+        }),
       addEducation: (edu) =>
         set((state) => ({
           data: { ...state.data, education: [...state.data.education, edu] },
@@ -151,6 +170,16 @@ export const useResumeStore = create<ResumeStore>()(
             education: state.data.education.filter((e) => e.id !== id),
           },
         })),
+      moveEducation: (index, direction) =>
+        set((state) => {
+          const newEdu = [...state.data.education]
+          if (direction === 'up' && index > 0) {
+            ;[newEdu[index - 1], newEdu[index]] = [newEdu[index], newEdu[index - 1]]
+          } else if (direction === 'down' && index < newEdu.length - 1) {
+            ;[newEdu[index + 1], newEdu[index]] = [newEdu[index], newEdu[index + 1]]
+          }
+          return { data: { ...state.data, education: newEdu } }
+        }),
       addProject: (proj) =>
         set((state) => ({
           data: { ...state.data, projects: [...state.data.projects, proj] },
@@ -169,11 +198,23 @@ export const useResumeStore = create<ResumeStore>()(
             projects: state.data.projects.filter((p) => p.id !== id),
           },
         })),
+      moveProject: (index, direction) =>
+        set((state) => {
+          const newProj = [...state.data.projects]
+          if (direction === 'up' && index > 0) {
+            ;[newProj[index - 1], newProj[index]] = [newProj[index], newProj[index - 1]]
+          } else if (direction === 'down' && index < newProj.length - 1) {
+            ;[newProj[index + 1], newProj[index]] = [newProj[index], newProj[index + 1]]
+          }
+          return { data: { ...state.data, projects: newProj } }
+        }),
       updateSkills: (skills) =>
         set((state) => ({
           data: { ...state.data, skills },
         })),
       setTheme: (theme) => set({ theme }),
+      setAccentColor: (accentColor) => set({ accentColor }),
+      setFontFamily: (fontFamily) => set({ fontFamily }),
       resetData: () => set({ data: initialData }),
     }),
     {

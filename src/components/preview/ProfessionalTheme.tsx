@@ -7,12 +7,12 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
   const { personalInfo, experience, education, skills, projects } = data
 
   return (
-    <div className="bg-white text-slate-800 p-8 max-w-[800px] mx-auto min-h-[1056px] shadow-sm font-serif flex" id="resume-preview">
+    <div className="bg-white text-slate-800 p-8 max-w-[800px] mx-auto min-h-[1056px] shadow-sm flex" id="resume-preview">
       
       {/* Left Column */}
-      <div className="w-1/3 pr-6 border-r border-slate-200">
-        <h1 className="text-3xl font-bold text-slate-900 leading-tight mb-2">{personalInfo.fullName}</h1>
-        <h2 className="text-lg text-slate-600 font-medium mb-6">{personalInfo.jobTitle}</h2>
+      <div className="w-1/3 pr-6 border-r" style={{ borderColor: 'var(--theme-color)' }}>
+        <h1 className="text-3xl font-bold leading-tight mb-2" style={{ color: 'var(--theme-color)' }}>{personalInfo.fullName}</h1>
+        <h2 className="text-lg font-medium mb-6" style={{ color: 'var(--theme-color)', opacity: 0.8 }}>{personalInfo.jobTitle}</h2>
         
         <div className="space-y-3 text-sm text-slate-600 mb-8">
           {personalInfo.email && (
@@ -44,7 +44,7 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
         {/* Education (moved to sidebar) */}
         {education.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-lg font-bold text-slate-900 border-b-2 border-slate-900 pb-1 mb-4 uppercase tracking-widest">Education</h3>
+            <h3 className="text-lg font-bold border-b-2 pb-1 mb-4 uppercase tracking-widest" style={{ color: 'var(--theme-color)', borderColor: 'var(--theme-color)' }}>Education</h3>
             <div className="space-y-4">
               {education.map((edu) => (
                 <div key={edu.id}>
@@ -60,7 +60,7 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
         {/* Skills */}
         {skills.length > 0 && (
           <div>
-            <h3 className="text-lg font-bold text-slate-900 border-b-2 border-slate-900 pb-1 mb-4 uppercase tracking-widest">Skills</h3>
+            <h3 className="text-lg font-bold border-b-2 pb-1 mb-4 uppercase tracking-widest" style={{ color: 'var(--theme-color)', borderColor: 'var(--theme-color)' }}>Skills</h3>
             <ul className="list-disc list-inside text-sm text-slate-700 space-y-1">
               {skills.map((skill, index) => (
                 <li key={index}>{skill}</li>
@@ -76,7 +76,7 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
         {/* Summary */}
         {personalInfo.summary && (
           <div className="mb-8">
-            <h3 className="text-lg font-bold text-slate-900 border-b-2 border-slate-900 pb-1 mb-4 uppercase tracking-widest">Profile</h3>
+            <h3 className="text-lg font-bold border-b-2 pb-1 mb-4 uppercase tracking-widest" style={{ color: 'var(--theme-color)', borderColor: 'var(--theme-color)' }}>Profile</h3>
             <p className="text-slate-700 text-sm leading-relaxed">{personalInfo.summary}</p>
           </div>
         )}
@@ -84,7 +84,7 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
         {/* Experience */}
         {experience.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-lg font-bold text-slate-900 border-b-2 border-slate-900 pb-1 mb-4 uppercase tracking-widest">Experience</h3>
+            <h3 className="text-lg font-bold border-b-2 pb-1 mb-4 uppercase tracking-widest" style={{ color: 'var(--theme-color)', borderColor: 'var(--theme-color)' }}>Experience</h3>
             <div className="space-y-6">
               {experience.map((exp) => (
                 <div key={exp.id}>
@@ -107,7 +107,7 @@ export function ProfessionalTheme({ data }: { data: ResumeData }) {
         {/* Projects */}
         {projects.length > 0 && (
           <div>
-            <h3 className="text-lg font-bold text-slate-900 border-b-2 border-slate-900 pb-1 mb-4 uppercase tracking-widest">Projects</h3>
+            <h3 className="text-lg font-bold border-b-2 pb-1 mb-4 uppercase tracking-widest" style={{ color: 'var(--theme-color)', borderColor: 'var(--theme-color)' }}>Projects</h3>
             <div className="space-y-5">
               {projects.map((proj) => (
                 <div key={proj.id}>
